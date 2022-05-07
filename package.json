@@ -1,6 +1,6 @@
 {
-  "name": "react-template-admin-web",
-  "version": "0.1.0",
+  "name": "react-template",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -93,5 +93,9 @@
     "src/**/*.{css,less,scss,sass}": [
       "prettier --write"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/qiuqfang/react-template.git",
+  "author": "qiuqfang <2312180277@qq.com>",
+  "license": "MIT"
 }
