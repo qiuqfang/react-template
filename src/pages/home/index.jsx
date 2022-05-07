@@ -5,9 +5,11 @@ import { increment, incrementAsync } from "@/store/module/home";
 import { Button } from "antd";
 
 class Home extends Component {
-  handleClickBtn = () => {
-    this.props.increment();
-    this.props.incrementAsync();
+  handleClickBtn = async () => {
+    const { dispatch } = this.props;
+    dispatch(increment(2));
+    const result = await dispatch(incrementAsync(2));
+    console.log(result);
   };
 
   render() {
@@ -16,21 +18,10 @@ class Home extends Component {
         <Button type="primary" onClick={this.handleClickBtn}>
           点击
         </Button>
+        <p>{this.props.count}</p>
       </div>
     );
   }
 }
 
-export default connect(
-  (state) => state.home,
-  (dispatch) => ({
-    increment: () => {
-      dispatch(increment(2));
-    },
-    incrementAsync: () => {
-      dispatch(incrementAsync(2)).then((res) => {
-        console.log(res);
-      });
-    },
-  })
-)(Home);
+export default connect((state) => state.home)(Home);

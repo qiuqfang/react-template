@@ -18,10 +18,10 @@ console.log("homeSlice", homeSlice);
 
 export const { increment } = homeSlice.actions;
 
-export const incrementAsync = (amount) => async (dispatch) => {
+export const incrementAsync = (amount) => async (dispatch, getState) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   dispatch(increment(amount));
-  return 2222;
+  return getState();
 };
 
 export default homeSlice.reducer;
