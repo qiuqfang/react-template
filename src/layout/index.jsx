@@ -1,17 +1,18 @@
 import React, { PureComponent } from "react";
+import NavBar from "./components/NavBar";
 
 import "./index.less";
 
 export default class RootLayout extends PureComponent {
   componentDidMount() {
     const { location } = this.props;
-    location.pathname === "/" && this.props.history.push("/home");
+    location.pathname === "/" && this.props.history.push("/overview");
   }
   render() {
     return (
       <div className="root-layout">
-        <h1>Layout</h1>
-        <section className="section-box">{this.props.children}</section>
+        <NavBar></NavBar>
+        <section className="root-layout-section">{this.props.children}</section>
       </div>
     );
   }

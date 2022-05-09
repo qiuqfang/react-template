@@ -8,15 +8,9 @@ const routes = [
     component: lazy(() => import("@/layout")),
     children: [
       {
-        path: "/home",
-        component: lazy(() => import("@/pages/home")),
-        children: [
-          {
-            path: "/home/countView",
-            component: lazy(() => import("@/pages/home/count-view")),
-          },
-        ],
-        redirect: { from: "/home", to: "/home/countView" },
+        path: "/overview",
+        component: lazy(() => import("@/pages/overview")),
+        redirect: { from: "/", to: "/overview" },
       },
       {
         path: "/promotion",
@@ -28,6 +22,10 @@ const routes = [
           },
         ],
         redirect: { from: "/promotion", to: "/promotion/list" },
+      },
+      {
+        path: "/finance",
+        component: lazy(() => import("@/pages/finance")),
       },
     ],
   },
