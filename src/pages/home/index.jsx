@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { increment, incrementAsync } from "@/store/module/home";
 
 import { Button } from "antd";
 
-class Home extends Component {
+class Home extends PureComponent {
   handleClickBtn = async () => {
     const { dispatch } = this.props;
     dispatch(increment(2));
@@ -15,10 +15,11 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <h2>Home</h2>
         <Button type="primary" onClick={this.handleClickBtn}>
           点击
         </Button>
-        <p>{this.props.count}</p>
+        <div>{this.props.children}</div>
       </div>
     );
   }

@@ -1,16 +1,20 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
-import Home from "@/pages/home";
 import "./index.less";
 
 import { Provider } from "react-redux";
 
 import store from "@/store";
+import RouteView from "./router/RouteView";
+
+import { Skeleton } from "antd";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Home></Home>
+      <Suspense fallback={<Skeleton active />}>
+        <RouteView></RouteView>
+      </Suspense>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
