@@ -14,8 +14,11 @@ export default class NavBar extends PureComponent {
     const { menus } = this.props;
     return (
       <header className="root-layout-head">
-        <Logo logoUrl={logoUrl} height={25} title="标题"></Logo>
-        <NavMenu menus={menus ? menus : this.state.mockMenus}></NavMenu>
+        <div className="head-left">
+          <Logo logoUrl={logoUrl} height={25} title="标题"></Logo>
+          <NavMenu menus={menus ? menus : this.state.mockMenus}></NavMenu>
+        </div>
+        <div className="head-right"></div>
       </header>
     );
   }

@@ -1,11 +1,12 @@
 import { lazy } from "react";
+import RootLayout from "@/layout";
 
 const routes = [
   { path: "/login", component: lazy(() => import("@/pages/login")) },
   { path: "/404", component: lazy(() => import("@/pages/404")) },
   {
     path: "/",
-    component: lazy(() => import("@/layout")),
+    component: RootLayout,
     children: [
       {
         path: "/overview",

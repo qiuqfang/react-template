@@ -12,7 +12,7 @@ import { Skeleton } from "antd";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Suspense fallback={<Skeleton active />}>
+      <Suspense fallback={<Skeleton loading />}>
         <RouteView></RouteView>
       </Suspense>
     </Provider>

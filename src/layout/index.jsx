@@ -6,7 +6,8 @@ import "./index.less";
 export default class RootLayout extends PureComponent {
   componentDidMount() {
     const { location } = this.props;
-    location.pathname === "/" && this.props.history.push("/overview");
+    location.pathname === "/" &&
+      this.props.history.push(localStorage.getItem("defaultRoutePath") || "/overview");
   }
   render() {
     return (

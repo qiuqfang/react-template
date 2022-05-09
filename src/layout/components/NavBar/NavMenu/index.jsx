@@ -7,32 +7,33 @@ export default withRouter(
     constructor(props) {
       super(props);
       this.state = {
-        defaultSelectedKeys: ["/overview"],
+        selectedKeys: [localStorage.getItem("defaultRoutePath") || "/overview"],
       };
     }
-    componentDidMount() {
-      this.setState({
-        defaultSelectedKeys: [this.props.location.pathname],
-      });
-    }
     handleMenuClick = (e) => {
-      console.log(e);
       const { history } = this.props;
       history.push(e.key);
+      this.setState({
+        selectedKeys: [e.key],
+      });
+      localStorage.setItem("defaultRoutePath", e.key);
     };
     render() {
       const { menus } = this.props;
-      const { defaultSelectedKeys } = this.state;
+      const { selectedKeys } = this.state;
       return (
-        <>
-          <Menu
-            mode="horizontal"
-            defaultSelectedKeys={defaultSelectedKeys}
-            items={menus}
-            style={{ border: "none", fontSize: "16px", fontWeight: "bold" }}
-            onClick={this.handleMenuClick}
-          ></Menu>
-        </>
+        <Menu
+          mode="horizontal"
+          selectedKeys={selectedKeys}
+          items={menus}
+          style={{
+            border: "none",
+            fontSize: "16px",
+            fontWeight: "bold",
+            width: "calc(100vw - 200px)",
+          }}
+          onClick={this.handleMenuClick}
+        ></Menu>
       );
     }
   }
