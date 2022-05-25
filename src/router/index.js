@@ -11,7 +11,6 @@ const routes = [
       {
         path: "/overview",
         component: lazy(() => import("@/pages/overview")),
-        redirect: { from: "/", to: "/overview" },
       },
       {
         path: "/promotion",
@@ -22,7 +21,6 @@ const routes = [
             component: lazy(() => import("@/pages/promotion/list")),
           },
         ],
-        redirect: { from: "/promotion", to: "/promotion/list" },
       },
       {
         path: "/finance",

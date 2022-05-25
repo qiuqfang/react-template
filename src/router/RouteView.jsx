@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import routes from "./index";
 
@@ -29,13 +29,13 @@ function renderRoutes(routes) {
           ></Route>
         );
       })}
-      <Redirect to={"/404"}></Redirect>
+      <Redirect path="*" to={routes[0].path}></Redirect>
     </Switch>
   );
 }
 
 export default class RouteView extends PureComponent {
   render() {
-    return <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>;
+    return <HashRouter>{renderRoutes(routes)}</HashRouter>;
   }
 }

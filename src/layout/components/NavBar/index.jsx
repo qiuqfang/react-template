@@ -1,9 +1,11 @@
 import React, { PureComponent } from "react";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
-import { mockMenus } from "./data";
+import { mockMenus } from "./config";
+import DropdownMenu from "./DropdownMenu";
 
-const logoUrl = require("@/assets/logo.png").default;
+const logoUrl =
+  "http://www.qiuqfang.top/upload/2021/08/fecoder-3078a03d285a4d8eb76a794b8f05eae1.png";
 
 export default class NavBar extends PureComponent {
   constructor(props) {
@@ -15,10 +17,12 @@ export default class NavBar extends PureComponent {
     return (
       <header className="root-layout-head">
         <div className="head-left">
-          <Logo logoUrl={logoUrl} height={25} title="标题"></Logo>
+          <Logo logoUrl={logoUrl} height={25} title="后台管理系统"></Logo>
           <NavMenu menus={menus ? menus : this.state.mockMenus}></NavMenu>
         </div>
-        <div className="head-right"></div>
+        <div className="head-right">
+          <DropdownMenu></DropdownMenu>
+        </div>
       </header>
     );
   }

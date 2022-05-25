@@ -30,7 +30,7 @@ export default withRouter(
             border: "none",
             fontSize: "16px",
             fontWeight: "bold",
-            width: "calc(100vw - 200px)",
+            width: "calc(100vw - 900px)",
           }}
           onClick={this.handleMenuClick}
         ></Menu>

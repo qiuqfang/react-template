@@ -4,19 +4,18 @@ const initialState = {
   count: 0,
 };
 
-const homeSlice = createSlice({
-  name: "home",
+const overviewSlice = createSlice({
+  name: "overview",
   initialState,
   reducers: {
     increment(state, action) {
+      console.log(action);
       state.count += Math.random() * 100 * action.payload;
     },
   },
 });
 
-console.log("homeSlice", homeSlice);
-
-export const { increment } = homeSlice.actions;
+export const { increment } = overviewSlice.actions;
 
 export const incrementAsync = (amount) => async (dispatch, getState) => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -24,4 +23,4 @@ export const incrementAsync = (amount) => async (dispatch, getState) => {
   return getState();
 };
 
-export default homeSlice.reducer;
+export default overviewSlice.reducer;

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import home from "./module/home";
+import overview from "./module/overview";
 
 const reducers = {
-  home,
+  overview,
 };
 
 const store = configureStore({

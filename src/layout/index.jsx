@@ -1,7 +1,9 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Suspense } from "react";
 import NavBar from "./components/NavBar";
 
 import "./index.less";
+
+import Skeleton from "@ant-design/pro-skeleton";
 
 export default class RootLayout extends PureComponent {
   componentDidMount() {
@@ -13,7 +15,9 @@ export default class RootLayout extends PureComponent {
     return (
       <div className="root-layout">
         <NavBar></NavBar>
-        <section className="root-layout-section">{this.props.children}</section>
+        <Suspense fallback={<Skeleton type="list" />}>
+          <section className="root-layout-section">{this.props.children}</section>
+        </Suspense>
       </div>
     );
   }

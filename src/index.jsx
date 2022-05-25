@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.less";
 
@@ -7,14 +7,18 @@ import { Provider } from "react-redux";
 import store from "@/store";
 import RouteView from "./router/RouteView";
 
-import { Skeleton } from "antd";
+import zhCN from "antd/lib/locale/zh_CN";
+import { ConfigProvider } from "antd";
+import { ThemeContext } from "./config";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Suspense fallback={<Skeleton loading />}>
-        <RouteView></RouteView>
-      </Suspense>
+      <ConfigProvider locale={zhCN}>
+        <ThemeContext.Provider value={"dark"}>
+          <RouteView></RouteView>
+        </ThemeContext.Provider>
+      </ConfigProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
